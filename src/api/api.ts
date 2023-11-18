@@ -9,7 +9,7 @@ export const getVessels = async (): Promise<VesselResponseAPI[]> => {
 	return data
 }
 
-export const getSchedule = async (id: string): Promise<ScheduleResponseAPI> => {
+export const getSchedule = async (id: number): Promise<ScheduleResponseAPI> => {
 	const { data } = await axios.get<ScheduleResponseAPI>(baseURL + 'schedule/' + id)
 	return data
 }

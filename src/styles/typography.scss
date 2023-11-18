@@ -1,0 +1,53 @@
+@import './colors';
+
+.title {
+	font-size: 30px;
+	font-weight: 900;
+	font-family: Helvetica, sans-serif, Arial;
+	&.gold {
+		color: $terciary600;
+	}
+	&.purple {
+		color: $secondary300;
+	}
+	&.blue {
+		color: $blue;
+	}
+}
+
+.text {
+	font-size: 16px;
+	font-family: Helvetica, sans-serif, Arial;
+	&.gold {
+		color: $terciary600;
+		&.dark {
+			color: $secondary900;
+		}
+	}
+	&.purple {
+		color: $secondary300;
+	}
+	&.blue {
+		color: $blue;
+	}
+	&.black {
+		color: $base900;
+	}
+}
+
+$mainFont: Helvetica, sans-serif, Arial;
+
+.h1 {
+	font-size: 32px;
+	font-weight: 900;
+}
+
+.h2 {
+	font-size: 24px;
+	font-weight: 900;
+}
+
+.h3 {
+	font-size: 16px;
+	font-weight: 900;
+}

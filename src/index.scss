@@ -1,3 +1,4 @@
+@import './styles/colors.scss';
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -53,7 +54,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+#root {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -65,4 +70,15 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.Card {
+	padding: 20px;
+	border-radius: 20px;
+  background-color: $greenblue;
+  box-shadow: 10px 10px 25px $aquablue,
+	-15px -15px 30px $greenblue,
+	inset 10px 10px 25px $aquablue,
+	inset -15px -15px 30px $greenblue,
+	inset 0px 0px 50px 50px $greenblue;
+  margin: 40px;
 }
