@@ -1,8 +1,17 @@
 import '@testing-library/jest-dom'
-import { render } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import App from './App'
+import axios from 'axios'
 
-test('Renders the main page', () => {
-	render(<App />)
-	expect(true).toBeTruthy()
+beforeEach(() => {
+	jest.spyOn(axios, 'get')
+})
+
+describe('App', () => {
+  it('should display app component', async () => {
+		const app = await waitFor(() => <App />);
+
+		expect(app).toBeTruthy()
+
+	})
 })

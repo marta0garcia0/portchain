@@ -1,6 +1,28 @@
+@import './styles/colors.scss';
 .App {
   display: flex;
+  flex-direction: column;
   .column {
-    flex: 50%;
+    flex: 100%;
   }
+
+  .Card-block {
+    background-color: $aquablue;
+    margin: 10px 0;
+    padding: 10px;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    display: flex;
+    flex-direction: row;
+    .column {
+      flex: 50%;
+    }
+  }
+  
 }

@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+.Card {
+	padding: 20px;
+	border-radius: 20px;
+  background-color: $greenblue;
+  box-shadow: 10px 10px 25px $aquablue,
+	-15px -15px 30px $greenblue,
+	inset 10px 10px 25px $aquablue,
+	inset -15px -15px 30px $greenblue,
+	inset 0px 0px 50px 50px $greenblue;
+  margin: 40px;
+	h2 {
+		text-align: center;
+	}
+	span {
+		cursor: pointer;
+	}
+}

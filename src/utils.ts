@@ -1,6 +1,6 @@
-import { LogType } from './api/models';
+import { portResponseAPI } from './api/models';
 
-export const calculatePercentile = (percentile: number, schs: LogType[]) => {
+export const calculatePercentile = (percentile: number, schs: portResponseAPI[]) => {
 	const secAr = schs.map(sch => {
 		const departure: number = (new Date(sch.departure)).getTime()
 		const arrival: number = (new Date(sch.arrival)).getTime()
