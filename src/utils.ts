@@ -1,4 +1,4 @@
-import { portResponseAPI } from './api/models';
+import { portResponseAPI } from './api/models'
 
 /**
  * @percentile must be a number between [1, 100]
@@ -25,10 +25,10 @@ export const calculatePercentile = (percentile: number, schs: portResponseAPI[])
 	//  percentile and sums themm
 	const sum = secAr.sort((a, b) => (a > b) ? 1 : -1)
 		.slice(0, itemsIncluded)
-		.reduce((previous, current) => current += previous);
+		.reduce((previous, current) => current += previous)
 	// calculate the average of the events by dividing the sum
 	// by the number of items
-	const avg = sum / itemsIncluded;
+	const avg = sum / itemsIncluded
 	if (avg < 60) {
 		return [avg.toFixed(1), 'minutes']
 	} else if (avg < 60 * 24) {

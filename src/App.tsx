@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getSchedule, getVessels } from './api/api'
 import { VesselResponseAPI, ScheduleResponseAPI } from './api/models'
-import { calculatePercentile, displayArray } from './utils';
-import { Card } from './components/card/Card';
+import { calculatePercentile, displayArray } from './utils'
+import { Card } from './components/card/Card'
 
 import './App.scss'
 

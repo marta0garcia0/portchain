@@ -14,8 +14,8 @@ export type PortType =  {
 }
 
 export interface VesselResponseAPI {
-	imo: number;
-	name: string;
+	imo: number,
+	name: string,
 }
 
 export interface portResponseAPI {
