@@ -1,6 +1,6 @@
 
-import { portResponseAPI } from './api/models';
-import { calculatePercentile } from './utils';
+import { portResponseAPI } from './api/models'
+import { calculatePercentile } from './utils'
 
 const setSchs = (arrival: Date, length: number): portResponseAPI[] => {
 	return Array(length).fill({
