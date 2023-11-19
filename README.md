@@ -33,3 +33,5 @@ Cache the home data to avoid requesting every single port every time the user re
 Loading component to display while the data is being retrievedW
 
 Use react router to create the port detail page so the user can click in the port and get into the information about that port
+
+add more cases in the calculatePercentile test

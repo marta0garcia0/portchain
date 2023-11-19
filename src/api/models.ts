@@ -8,23 +8,25 @@ export type LogType = {
 	createdDate: Date
 }
 
+export type PortType =  {
+	id: string,
+	name: string
+}
+
 export interface VesselResponseAPI {
 	imo: number;
 	name: string;
 }
-export type VesselType = VesselResponseAPI
 
 export interface portResponseAPI {
 	arrival: Date,
 	departure: Date,
 	createdDate: Date,
-	isOmitted: true,
+	isOmitted: boolean,
 	service: string,
-	port: VesselResponseAPI,
+	port: PortType,
 	logEntries: LogType[],
 }
-
-export type ScheduleType = ScheduleResponseAPI
 
 export interface ScheduleResponseAPI {
   vessel: VesselResponseAPI,
