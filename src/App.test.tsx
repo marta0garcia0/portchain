@@ -10,8 +10,6 @@ beforeEach(() => {
 describe('App', () => {
   it('should display app component', async () => {
 		const app = await waitFor(() => <App />)
-
 		expect(app).toBeTruthy()
-
 	})
 })
