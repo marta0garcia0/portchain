@@ -2,7 +2,8 @@
 
 The app is written in react + typescript and is launched with vite. For the tests we are using testing-library and jest.
 The app is composed by one single layout that is responsive.
-You can find 3 modules that the user can expand by clicking the icon to see the information contained in each module.
+You can find 3 modules that the user can expand and contract by clicking the module to see the information contained in each module.
+The expansion can be preset with a boolean value when setting the Card component. To facilitate the visualization only the 'Top 5 less port calls' and the 'Port call durations percentiles' are expanded in the loading.
 
 ## Installation
 
