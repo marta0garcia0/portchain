@@ -44,7 +44,7 @@ function App() {
           ))}
           </div>
         </Card>
-        <Card title={'Top 5 less port calls'} >
+        <Card title={'Top 5 less port calls'} preOpen={true}>
           <div>
           {schedules
             .slice(schedules.length - (schedules.length >= 5 ? 5 : 0), schedules.length)
@@ -59,7 +59,7 @@ function App() {
         </Card>
       </div>
       <div className='column'>
-        <Card title={'Port call durations percentiles'} >
+        <Card title={'Port call durations percentiles'} preOpen={true}>
           <div>
             {schedules.map(sc => (
               <div className='Card-block' key={sc.vessel.imo}>
@@ -67,7 +67,7 @@ function App() {
                 <div className='info'>
                   <p>Time duration percentiles:</p>
                   <div>{percents2display.map(percent => 
-                    <p>{percent}%: <span>{displayArray(calculatePercentile(percent, sc.portCalls))}</span></p>
+                    <p key={sc.vessel.imo}>{percent}%: <span>{displayArray(calculatePercentile(percent, sc.portCalls))}</span></p>
                   )}</div>
                 </div>
               </div>
