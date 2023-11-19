@@ -35,7 +35,8 @@ function App() {
       <div className='column'>
         <Card title={'Top 5 more port calls'} >
           <div>
-          {schedules.slice(0, 5).map(sc => (
+          {schedules.slice(0, (schedules.length >= 5 ? 5 : schedules.length))
+            .map(sc => (
             <div className='Card-block' key={sc.vessel.imo}>
               <p><span className='name'>{sc.vessel.name}</span>{' (' + sc.vessel.imo + ')'}</p>
               <p className='info'>Total port calls: <span>{sc.portCalls.length}</span></p>
@@ -45,7 +46,8 @@ function App() {
         </Card>
         <Card title={'Top 5 less port calls'} >
           <div>
-          {schedules.slice(schedules.length - 5, schedules.length)
+          {schedules
+            .slice(schedules.length - (schedules.length >= 5 ? 5 : 0), schedules.length)
             .sort((a, b) => (a.portCalls.length > b.portCalls.length) ? 1 : -1)
             .map(sc => (
               <div className='Card-block' key={sc.vessel.imo}>

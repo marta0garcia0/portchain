@@ -21,8 +21,8 @@ export const calculatePercentile = (percentile: number, schs: portResponseAPI[])
 	if (percentile === 0 || itemsIncluded < 1) {
 		return  ['0.0', 'minutes']
 	}
-	// sort those events by duration and pic those in the corresponding 
-	//  percentile and sums themm
+	// sort those events by duration and pick those in the corresponding 
+	//  percentile and sums them
 	const sum = secAr.sort((a, b) => (a > b) ? 1 : -1)
 		.slice(0, itemsIncluded)
 		.reduce((previous, current) => current += previous)
