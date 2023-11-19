@@ -2,17 +2,33 @@
 .Card {
 	padding: 20px;
 	border-radius: 20px;
-  background-color: $greenblue;
-  box-shadow: 10px 10px 25px $aquablue,
-	-15px -15px 30px $greenblue,
-	inset 10px 10px 25px $aquablue,
-	inset -15px -15px 30px $greenblue,
-	inset 0px 0px 50px 50px $greenblue;
+  background-color: $primary100;
+  box-shadow: 10px 10px 25px $primary300,
+	-15px -15px 30px $primary100,
+	inset 10px 10px 25px $primary300,
+	inset -15px -15px 30px $primary100,
+	inset 0px 0px 50px 50px $primary100;
   margin: 40px;
 	h2 {
 		text-align: center;
 	}
 	span {
 		cursor: pointer;
+	}
+	.Card-block {
+		background-color: $primary100;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    p {
+			margin: 0;
+			&.id {
+				display: inline-block;
+			}
+			span.name {
+				font-weight: 700;
+				display: inline-block;
+			}
+    }
 	}
 }

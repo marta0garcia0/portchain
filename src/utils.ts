@@ -19,3 +19,7 @@ export const calculatePercentile = (percentile: number, schs: portResponseAPI[])
 		return [(avg / 60 / 24).toFixed(1), 'days']
 	}
 }
+
+export const displayArray = (ar: string[]) => {
+	return ar.join(' ')
+}

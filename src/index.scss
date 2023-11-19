@@ -71,15 +71,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.CardContainer
- {
+.CardContainer {
 	padding: 20px;
 	border-radius: 20px;
-  background-color: $greenblue;
-  box-shadow: 10px 10px 25px $aquablue,
-	-15px -15px 30px $greenblue,
-	inset 10px 10px 25px $aquablue,
-	inset -15px -15px 30px $greenblue,
-	inset 0px 0px 50px 50px $greenblue;
+  background-color: $primary100;
+  box-shadow: 10px 10px 25px $primary300,
+	-15px -15px 30px $primary100,
+	inset 10px 10px 25px $primary300,
+	inset -15px -15px 30px $primary100,
+	inset 0px 0px 50px 50px $primary100;
   margin: 40px;
 }

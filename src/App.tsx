@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { getSchedule, getVessels } from './api/api'
 import { VesselResponseAPI, ScheduleResponseAPI } from './api/models'
-import { calculatePercentile } from './utils';
+import { calculatePercentile, displayArray } from './utils';
 import { Card } from './components/card/Card';
 
 import './App.scss'
 
 function App() {
-
+  const percents2display = [5, 20, 50, 75, 90]
   const [ports, setPorts] = useState<VesselResponseAPI[]>([])
   const [schedules, setSchedules] = useState<ScheduleResponseAPI[]>([])
 
@@ -31,55 +31,49 @@ function App() {
   }, [ports])
 
   return (
-    <>
-      <div className='App'>
-        <div className='column'>
-          <Card title={'Top 5 more port calls'} >
-            <div>
-            {schedules.slice(0, 5).map(sc => (
+    <div className='App'>
+      <div className='column'>
+        <Card title={'Top 5 more port calls'} >
+          <div>
+          {schedules.slice(0, 5).map(sc => (
+            <div className='Card-block' key={sc.vessel.imo}>
+              <p><span className='name'>{sc.vessel.name}</span>{' (' + sc.vessel.imo + ')'}</p>
+              <p className='info'>Total port calls: <span>{sc.portCalls.length}</span></p>
+            </div>
+          ))}
+          </div>
+        </Card>
+        <Card title={'Top 5 less port calls'} >
+          <div>
+          {schedules.slice(schedules.length - 5, schedules.length)
+            .sort((a, b) => (a.portCalls.length > b.portCalls.length) ? 1 : -1)
+            .map(sc => (
               <div className='Card-block' key={sc.vessel.imo}>
-                <p>Id: <span>{sc.vessel.imo}</span></p>
-                <p>Name: <span>{sc.vessel.name}</span></p>
-                <p>Port calls: <span>{sc.portCalls.length}</span></p>
+                <p><span className='name'>{sc.vessel.name}</span>{' (' + sc.vessel.imo + ')'}</p>
+                <p className='info'>Total port calls: <span>{sc.portCalls.length}</span></p>
               </div>
-            ))}
-            </div>
-          </Card>
-          <Card title={'Top 5 less port calls'} >
-            <div>
-            {schedules.slice(schedules.length - 5, schedules.length)
-              .sort((a, b) => (a.portCalls.length > b.portCalls.length) ? 1 : -1)
-              .map(sc => (
-              <div className='Card-block' key={sc.vessel.imo}>
-                <p>Id: <span>{sc.vessel.imo}</span></p>
-                <p>Name: <span>{sc.vessel.name}</span></p>
-                <p>Port calls: <span>{sc.portCalls.length}</span></p>
-              </div>
-            ))}
-            </div>
-          </Card>
-        </div>
-        <div className='column'>
-          <Card title={'Port percentiles of call durations'} >
-            <div>
-              {schedules.map(sc => (
-                <div className='Card-block' key={sc.vessel.imo}>
-                  <p>Id: <span>{sc.vessel.imo}</span></p>
-                  <p>Name: <span>{sc.vessel.name}</span></p>
-                  <p>Duration:</p>
-                  <p>percentil 5: <span>{calculatePercentile(5, sc.portCalls)}</span></p>
-                  <p>percentil 20: <span>{calculatePercentile(20, sc.portCalls)}</span></p>
-                  <p>percentil 50: <span>{calculatePercentile(50, sc.portCalls)}</span></p>
-                  <p>percentil 75: <span>{calculatePercentile(75, sc.portCalls)}</span></p>
-                  <p>percentil 90: <span>{calculatePercentile(90, sc.portCalls)}</span></p>
-                  
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
+          ))}
+          </div>
+        </Card>
       </div>
-    </>
+      <div className='column'>
+        <Card title={'Port call durations percentiles'} >
+          <div>
+            {schedules.map(sc => (
+              <div className='Card-block' key={sc.vessel.imo}>
+                <p><span className='name'>{sc.vessel.name}</span>{' (' + sc.vessel.imo + ')'}</p>
+                <div className='info'>
+                  <p>Time duration percentiles:</p>
+                  <div>{percents2display.map(percent => 
+                    <p>{percent}%: <span>{displayArray(calculatePercentile(percent, sc.portCalls))}</span></p>
+                  )}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </div>
   )
 }
 
